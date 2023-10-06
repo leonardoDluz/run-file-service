@@ -1,0 +1,19 @@
+FROM python:3
+
+COPY . /app
+
+ARG FILENAME
+ARG PORT
+ARG EXECUTER
+
+ENV PORT=$PORT
+ENV FILENAME=$FILENAME
+ENV EXECUTER=$EXECUTER
+
+RUN pip install flask
+
+WORKDIR /app
+
+EXPOSE $PORT
+
+CMD ["python3", "app.py"]
