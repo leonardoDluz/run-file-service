@@ -1,11 +1,11 @@
-from flask import Flask, request
+from flask import Flask, jsonify, request
 import subprocess
 import os
 import json
 
-executer = os.getenv('EXECUTER')
-file_name = os.getenv('FILE_NAME')
-port = os.getenv('PORT')
+executer = os.getenv('EXECUTER') or 'python3'
+file_name = os.getenv('FILE_NAME') or 'hello.py'
+port = os.getenv('PORT') or 5001
 
 app = Flask(__name__)
 
